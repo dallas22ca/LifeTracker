@@ -1,11 +1,17 @@
 Lifetracker::Application.routes.draw do
 
-  devise_for :users
-  
-  authenticated do
-    resources :categories
-    resources :events, path: :log
-    root "dashboard#index"
+  devise_scope :user do 
+    devise_for :users
+    
+    authenticated :user do
+      resources :categories
+      resources :events, path: :log
+      root "dashboard#index"
+    end
+    
+    unauthenticated :user do
+      get "/", to: 'devise/sessions#new'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
