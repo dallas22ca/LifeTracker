@@ -1,0 +1,16 @@
+<%= form_tag request.path, method: :get do %>
+	<%= label_tag :start, "Start" %>
+	<%= text_field_tag :start, @start ? @start.strftime("%b %-d, %Y") : Time.zone.now.beginning_of_month.strftime("%b %-d, %Y") %>
+	<%= label_tag :finish, "Finish" %>
+	<%= text_field_tag :finish, @start ? @finish.strftime("%b %-d, %Y") : Time.zone.now.end_of_month.strftime("%b %-d, %Y") %>
+	<%= submit_tag "Go &rarr;".html_safe %>
+<% end %>
+
+<ul>
+	<li><%= link_to "All Categories", root_path %></li>
+	<% current_user.categories.where("categories.id != ?", current_user.goal_id).each do |category| %>
+	  <li>
+			<%= link_to "#{category.name} vs. #{current_user.goal.name}", category %>
+	  </li>
+	<% end %>
+</ul>

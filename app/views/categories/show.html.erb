@@ -1,0 +1,5 @@
+<%= render "categories" %>
+
+<% cache [@category, current_user.events.first] do %>
+	<div id="full_graph" data-chart="<%= Category.chart_all([current_user.goal_id, @category.id], current_user.goal_id, @start, @finish).to_json %>" style="width: 100%; height: 300px; "></div>
+<% end %>
