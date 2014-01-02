@@ -29,7 +29,7 @@
 					<%= r.label :content, r.object.category.name %>
 				</td>
 				<td>
-					<%= r.select :content, options_for_select(0..10, r.object.try(:quantity).to_i) %>
+					<%= r.text_field :content %>
 				</td>
 			</tr>
 		<% end %>
