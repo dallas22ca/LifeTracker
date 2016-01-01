@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <ul>
+    <li>What did I learn?</li>
+    <li>What would I do differently?</li>
+    <li>How can I be more effective?</li>
+  </ul>
+
   <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
@@ -19,7 +25,7 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </div>
-	
+
 	<table>
 		<%= f.fields_for :ratings do |r| %>
 			<tr>
@@ -34,7 +40,7 @@
 			</tr>
 		<% end %>
 	</table>
-	
+
   <div class="actions">
     <%= f.submit %>
   </div>
