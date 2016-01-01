@@ -31,7 +31,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 
 gem 'thin'
 
