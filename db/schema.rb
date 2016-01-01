@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20131222214834) do
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131222214834) do
 
   add_index "categories", ["user_id"], name: "index_categories_on_user_id"
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.datetime "date"
     t.text     "notes"
     t.integer  "user_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131222214834) do
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
-  create_table "ratings", force: true do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "event_id"
     t.text     "content"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20131222214834) do
   add_index "ratings", ["category_id"], name: "index_ratings_on_category_id"
   add_index "ratings", ["event_id"], name: "index_ratings_on_event_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
